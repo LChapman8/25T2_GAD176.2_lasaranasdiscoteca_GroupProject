@@ -22,10 +22,10 @@ namespace Peekaboopro.Invisibility
                 Debug.LogError("InvisibilitySpell: No PlayerStealthState found on the GameObject.");
             }
         }
-        // on update check if the player press "E" if they do, cast invisibility spell
+        // on update check if the player press "Q" if they do, cast invisibility spell
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.E) && !isOnCooldown)
+            if (Input.GetKeyDown(KeyCode.Q) && !isOnCooldown)
             {
                 ActivateInvisibility();
             }
