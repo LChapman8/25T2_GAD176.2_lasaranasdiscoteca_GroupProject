@@ -55,7 +55,7 @@ public class StealthEffectController : MonoBehaviour
                     float newAlpha = Mathf.Lerp(color.a, targetAlpha, Time.deltaTime * fadeSpeed);
                     mat.color = new Color(color.r, color.g, color.b, newAlpha);
 
-                    // If close to targetAlpha, stop fading
+                    // if close to targetAlpha, stop fading
                     if (Mathf.Abs(newAlpha - targetAlpha) < 0.01f)
                     {
                         mat.color = new Color(color.r, color.g, color.b, targetAlpha);

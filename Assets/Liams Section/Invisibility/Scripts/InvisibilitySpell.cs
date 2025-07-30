@@ -4,7 +4,7 @@ namespace Peekaboopro.Invisibility
 {
     public class InvisibilitySpell : MonoBehaviour
     {
-        // Variables for turning invisible/cooldowns
+        // variables for turning invisible/cooldowns
         [Header("Invisibility Settings")]
         public float invisibilityDuration = 5f;
         public float cooldownTime = 10f;

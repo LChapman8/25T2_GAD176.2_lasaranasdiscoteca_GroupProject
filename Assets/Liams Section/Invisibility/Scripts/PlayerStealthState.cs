@@ -1,25 +1,36 @@
+using System;
 using UnityEngine;
 
 public class PlayerStealthState : MonoBehaviour
 {
-    // variables for invisibility 
+    // variables for invisibility
     private bool isStealthed = false;
     private float currentCooldown = 0f;
     private float stealthTimer = 0f;
-    // reference to stealth controller script
+
+    // reference to stealth effect controller script
     private StealthEffectController effectController;
-    // coroutines for stealth cooldowns 
+
+    // coroutines for stealth cooldowns
     private Coroutine stealthCountdownCoroutine;
     private Coroutine cooldownCountdownCoroutine;
 
-    // get reference on awake to the stealth controller 
+    // events to notify when stealth starts or ends
+    public event Action OnStealthStarted;
+    public event Action OnStealthEnded;
+
+    // public properties for external access
+    public bool IsStealthed => isStealthed;
+    public float CooldownRemaining => Mathf.Max(currentCooldown, 0f);
+    public float StealthTimeRemaining => Mathf.Max(stealthTimer, 0f);
+
     private void Awake()
     {
         effectController = GetComponent<StealthEffectController>();
         if (!effectController)
             Debug.LogWarning("No StealthEffectController found on player.");
     }
-    // on update if the target is stealthed  run a timer, when it hits 0 end stealth and start cooldown 
+
     private void Update()
     {
         if (isStealthed)
@@ -35,13 +46,15 @@ public class PlayerStealthState : MonoBehaviour
             currentCooldown -= Time.deltaTime;
         }
     }
-    // a function for checking if stealth is available 
+
+    // check if stealth can be entered
     public bool CanEnterStealth()
     {
         return !isStealthed && currentCooldown <= 0f;
     }
-    // a function for entering stealth 
-    public void EnterStealth(float duration, float cooldown)
+
+    // enter stealth with an optional duration and cooldown (it will default to last used if none there)
+    public void EnterStealth(float duration = 5f, float cooldown = 10f)
     {
         if (!CanEnterStealth()) return;
 
@@ -53,11 +66,15 @@ public class PlayerStealthState : MonoBehaviour
 
         Debug.Log("Player entered stealth.");
 
-        // start countdown log for the coroutines for stealth time
-        if (stealthCountdownCoroutine != null) StopCoroutine(stealthCountdownCoroutine);
+        // Fire event
+        OnStealthStarted?.Invoke();
+
+        if (stealthCountdownCoroutine != null)
+            StopCoroutine(stealthCountdownCoroutine);
         stealthCountdownCoroutine = StartCoroutine(StealthCountdownLog());
     }
-    // a function for exiting stealth 
+
+    // exit stealth
     public void ExitStealth()
     {
         if (!isStealthed) return;
@@ -68,36 +85,40 @@ public class PlayerStealthState : MonoBehaviour
 
         Debug.Log("Player exited stealth.");
 
-        // Start cooldown countdown log coroutine
-        if (cooldownCountdownCoroutine != null) StopCoroutine(cooldownCountdownCoroutine);
+        
+        OnStealthEnded?.Invoke();
+
+        if (cooldownCountdownCoroutine != null)
+            StopCoroutine(cooldownCountdownCoroutine);
         cooldownCountdownCoroutine = StartCoroutine(CooldownCountdownLog());
     }
-    // a function for if the player is stealthed 
-    public bool IsStealthed()
+
+    // clean up coroutines on disable
+    private void OnDisable()
     {
-        return isStealthed;
+        if (stealthCountdownCoroutine != null)
+            StopCoroutine(stealthCountdownCoroutine);
+        if (cooldownCountdownCoroutine != null)
+            StopCoroutine(cooldownCountdownCoroutine);
     }
-    // a function for remaining cooldown
-    public float CooldownRemaining()
-    {
-        return Mathf.Max(currentCooldown, 0f);
-    }
-    // a debug log countdown of the time left in stealth 
+
+    // debug log countdown for stealth time left
     private System.Collections.IEnumerator StealthCountdownLog()
     {
         int secondsLeft = Mathf.CeilToInt(stealthTimer);
-        while (secondsLeft > 0)
+        while (secondsLeft > 0 && isStealthed)
         {
             Debug.Log($"Player stealth ends in {secondsLeft}...");
             yield return new WaitForSeconds(1f);
             secondsLeft--;
         }
     }
-    // a countdown that lets you know when stealth is available again
+
+    // debug log countdown for cooldown time left
     private System.Collections.IEnumerator CooldownCountdownLog()
     {
         int secondsLeft = Mathf.CeilToInt(currentCooldown);
-        while (secondsLeft > 0)
+        while (secondsLeft > 0 && !isStealthed)
         {
             yield return new WaitForSeconds(1f);
             secondsLeft--;
@@ -105,3 +126,4 @@ public class PlayerStealthState : MonoBehaviour
         Debug.Log("Stealth spell is available.");
     }
 }
+

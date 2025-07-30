@@ -15,9 +15,10 @@ namespace PeekabooPro.UI
         void Start()
         {
             slotQ.SetSpell(invisibilityIcon, "Q", invisibilityCooldown);
-            // Add in E and R spells later at full merge 
+            // add in E and R spells respectively for your own abilities 
         }
 
+        // function for triggering the "Q" cooldown 
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Q))

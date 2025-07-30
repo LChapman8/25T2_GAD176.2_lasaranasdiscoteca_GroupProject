@@ -1,61 +1,85 @@
 using PeekabooPro.Observers;
 using UnityEngine;
-
-
-
+using UnityEngine.SceneManagement;
 
 public class StationaryObserver : BaseObserver
 {
-    // variables for scanning for player 
-    [Header("Scanning Rotation")]
-    public bool enableScanning = true;
-    public float rotationSpeed = 30f;             
-    public float rotationAngle = 45f;              
+    // variables for rotation/scanning 
+    [Header("scanning rotation")]
+    public bool enableScanning = true;       
+    public float rotationSpeed = 30f;      
+    // variables for movespead and alarm delay 
+    [Header("chase settings")]
+    public float moveSpeed = 2f;              
+    public float alarmDelay = 2f;            
+    // variable for chasing 
+    private bool isChasing = false;           
 
-    private float startingYRotation;
-    private float currentRotation;
-    private bool rotatingRight = true;
-
+    // subscribe to events on awake
     protected override void Awake()
     {
         base.Awake();
-        startingYRotation = transform.eulerAngles.y;
-
-        // subscribe to base events
         OnPlayerDetectedEvent += HandlePlayerDetected;
         OnPlayerLostEvent += HandlePlayerLost;
     }
-    // on update rotate if player not found 
+
+    // update rotation and chasing movement
     protected override void Update()
     {
         base.Update();
 
-        if (enableScanning && !playerDetected)
-            RotateScanner();
+        // rotate while scanning and not chasing or detecting player
+        if (enableScanning && !playerDetected && !isChasing)
+        {
+            transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+        }
+
+        // chase player if detected
+        if (isChasing && playerTransform != null)
+        {
+            MoveTowardPlayer();
+        }
     }
-    // function for rotating the scanning 
-    private void RotateScanner()
+
+    // move towards player position smoothly
+    private void MoveTowardPlayer()
     {
-        float rotationStep = rotationSpeed * Time.deltaTime;
-        currentRotation += rotatingRight ? rotationStep : -rotationStep;
+        Vector3 direction = (playerTransform.position - transform.position).normalized;
+        transform.position += direction * moveSpeed * Time.deltaTime;
 
-        float clampedRotation = Mathf.Clamp(currentRotation, -rotationAngle, rotationAngle);
-        transform.rotation = Quaternion.Euler(0, startingYRotation + clampedRotation, 0);
-
-        if (Mathf.Abs(currentRotation) >= rotationAngle)
-            rotatingRight = !rotatingRight;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
-    // need to define logic for what happens when player is detected and lost 
+
+    // called when player detected, start chasing
     private void HandlePlayerDetected()
     {
-        Debug.Log($"{name}: Alarm triggered by StationaryObserver.");
-        
+        if (playerTransform == null)
+            playerTransform = playerStealthState.transform;
+
+        isChasing = true;
+        Debug.Log($"{name}: begin chase.");
     }
 
+    // called when player lost, stop chasing and reset target
     private void HandlePlayerLost()
     {
-        Debug.Log($"{name}: Player escaped detection zone.");
-        
+        Debug.Log($"{name}: lost player. returning to scan.");
+        isChasing = false;
+        playerTransform = null;
+    }
+
+    // override alarm trigger to add delay before reloading scene
+    protected override void OnInnerRadiusTriggered()
+    {
+        base.OnInnerRadiusTriggered();
+        Debug.Log($"{name}: inner radius triggered. scene will reload in {alarmDelay}s.");
+        Invoke(nameof(TriggerAlarm), alarmDelay);
+    }
+
+    // reload current scene to reset game
+    private void TriggerAlarm()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
-
