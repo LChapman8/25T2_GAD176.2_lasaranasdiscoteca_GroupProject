@@ -1,4 +1,5 @@
 using UnityEngine;
+using Peekaboopro.Invisibility;
 
 public class StealthEffectController : MonoBehaviour
 {

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Peekaboopro.Invisibility;
 
 public class PlayerStealthState : MonoBehaviour
 {
@@ -122,6 +123,7 @@ public class PlayerStealthState : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             secondsLeft--;
+            Debug.Log($"Stealth Spell Cooldown Remaning - {secondsLeft}");
         }
         Debug.Log("Stealth spell is available.");
     }
