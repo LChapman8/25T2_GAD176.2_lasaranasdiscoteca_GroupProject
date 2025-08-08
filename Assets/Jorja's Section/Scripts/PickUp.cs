@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PickUp : MonoBehaviour
@@ -13,12 +14,17 @@ public class PickUp : MonoBehaviour
     void Update()
     {
         //Allows item to be picked up if the player is nearby and presses 'E'
-        if(player != null && Input.GetKeyDown(KeyCode.E) && !isHeld && Vector3.Distance(transform.position, player.transform.position) < 2f)
+        if (player != null && Input.GetKeyDown(KeyCode.E) && !isHeld && Vector3.Distance(transform.position, player.transform.position) < 2f)
         {
             //Changed isHeld to true and sets the parent and location to the player
             isHeld = true;
             transform.SetParent(player.transform);
             transform.localPosition = new Vector3(0, 1, 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Destroy(gameObject);
         }
     }
 
