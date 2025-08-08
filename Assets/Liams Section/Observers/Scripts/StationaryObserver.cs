@@ -66,7 +66,6 @@ public class StationaryObserver : BaseObserver
     {
         Debug.Log($"{name}: lost player. returning to scan.");
         isChasing = false;
-        playerTransform = null;
     }
 
     // override alarm trigger to add delay before reloading scene

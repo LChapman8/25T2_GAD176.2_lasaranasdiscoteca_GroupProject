@@ -4312,7 +4312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invisibilityDuration: 5
-  cooldownTime: 10
+  cooldownTime: 5
 --- !u!1001 &483686432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10947,7 +10947,10 @@ MonoBehaviour:
     m_Bits: 0
   detectionAudioSource: {fileID: 1143939270}
   alarmAudioSource: {fileID: 1098004930}
-  waypoints: []
+  waypoints:
+  - {fileID: 315083988}
+  - {fileID: 2144926821}
+  - {fileID: 135254262}
   moveSpeed: 2
   waitTimeAtWaypoint: 1
 --- !u!4 &1242966701 stripped
@@ -13862,7 +13865,10 @@ MonoBehaviour:
     m_Bits: 0
   detectionAudioSource: {fileID: 1143939270}
   alarmAudioSource: {fileID: 1098004930}
-  waypoints: []
+  waypoints:
+  - {fileID: 135254262}
+  - {fileID: 2144926821}
+  - {fileID: 315083988}
   moveSpeed: 2
   waitTimeAtWaypoint: 1
 --- !u!4 &1637303910 stripped

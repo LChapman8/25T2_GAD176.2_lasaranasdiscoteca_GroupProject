@@ -98,7 +98,6 @@ public class MovingObserver : BaseObserver
     {
         Debug.Log($"{name}: lost player. resume patrol.");
         isChasing = false;
-        playerTransform = null;
     }
 
     // reload scene immediately on inner radius triggered

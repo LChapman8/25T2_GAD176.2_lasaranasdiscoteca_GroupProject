@@ -3,6 +3,10 @@ using UnityEngine;
 
 namespace PeekabooPro.Observers
 {
+    /// <summary>
+    /// This script is the base class for the observer, it contains all the functional knowledge for he observers to act the way that they need to 
+    /// It contains all the logic for player detection / SFX / detection events 
+    /// </summary>
     public abstract class BaseObserver : MonoBehaviour
     {
         // variables foe field of view / detection 
