@@ -6,22 +6,52 @@ public class PlayerInteractor : MonoBehaviour
 {
     [Header("Detection")]
     [SerializeField] private float scanRadius = 2.5f;
-    [SerializeField] private LayerMask interactableMask = ~0; // or specific layer
+    [SerializeField] private LayerMask interactableMask = ~0;
 
     [Header("Input")]
     [SerializeField] private KeyCode interactKey = KeyCode.F;
 
+    [Header("UI")]
+    [SerializeField] private WorldPromptController promptPrefab;
+
     private IInteractable _current;
+    private WorldPromptController _prompt;
+    private InteractablePrompt _interactable;
+    private Camera _cam;
+
+    void Awake()
+    {
+        _cam = Camera.main; // or inject
+        _prompt = Instantiate(promptPrefab);
+        _prompt.Initialize(_cam);
+        _interactable = _prompt.GetComponent<InteractablePrompt>();
+        _prompt.gameObject.SetActive(false);
+    }
 
     void Update()
     {
         FindBestInteractable();
 
-        if (_current != null && Input.GetKeyDown(interactKey))
+        if (_current != null)
         {
-            var interactableGO = (_current as MonoBehaviour)?.gameObject;
-            if (_current.CanInteract(gameObject))
-                _current.Interact(gameObject);
+            var mb = (_current as MonoBehaviour);
+            var baseInteractable = mb as InteractableBase;
+            Transform anchor = (baseInteractable != null) ? baseInteractable.PromptAnchor : mb.transform;
+
+            // Attach & show
+            _interactable.Attach(anchor, _cam);
+            _prompt.Bind(anchor, _current.PromptText);
+        }
+        else
+        {
+            // Hide
+            _prompt.Unbind();
+            _interactable.Detach();
+        }
+
+        if (_current != null && Input.GetKeyDown(interactKey) && _current.CanInteract(gameObject))
+        {
+            _current.Interact(gameObject);
         }
     }
 

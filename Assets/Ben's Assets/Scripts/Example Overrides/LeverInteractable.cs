@@ -11,9 +11,30 @@ public class LeverInteractable : InteractableBase
 
     private bool _used;
 
+    protected override bool IsAvailable(GameObject interactor)
+    {
+        if (oneShot && _used) return false;
+
+        if (!toggle)
+        {
+            bool anyClosed = false;
+            if (linkedBarriers != null)
+            {
+                foreach (var b in linkedBarriers)
+                {
+                    if (!b) continue;
+                    if (!b.IsOpen) { anyClosed = true; break; }
+                }
+            }
+            if (!anyClosed) return false;
+        }
+
+        return true;
+    }
+
     public override void Interact(GameObject interactor)
     {
-        if (_used && oneShot) return;
+        if (!IsAvailable(interactor)) return;
 
         if (animator) animator.SetTrigger("Pull");
 
