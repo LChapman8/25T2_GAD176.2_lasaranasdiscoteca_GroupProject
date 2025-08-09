@@ -2,17 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IInvestigatingObserver : MonoBehaviour
+public interface IInvestigatingObserver
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    /// Orders the observer to move to a point, linger briefly, then resume normal behavior.
+    void Investigate(Vector3 worldPoint, float duration);
 }

@@ -1,18 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ITrap : MonoBehaviour
+public interface ITrap
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    bool IsActive { get; }
+    event Action<ITrap, GameObject> OnTriggered;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Trigger(GameObject instigator);
+    void Suppress(float duration);  // temporarily disable
 }
