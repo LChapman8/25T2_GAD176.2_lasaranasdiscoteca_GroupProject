@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bottle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //The collision sound's Audio Source
+    public AudioSource hitSound;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] public float footstepNoiseRadius = 2f;
+
+    //When something collides with the gameObject
+    void OnCollisionEnter()
     {
-        
+        //The collision sound will play
+        hitSound.Play();
+
+        SoundManager.MakeNoise(transform.position, footstepNoiseRadius);
     }
 }
