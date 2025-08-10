@@ -354,9 +354,9 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 0
-  detectionAudioSource: {fileID: 8953940518890521393, guid: ff8a5b403c6815c4f8a5d11af574685e,
+  detectionAudioSource: {fileID: 1926329817290887231, guid: 5afac6ee7c6957d45ae07c20166eaabd,
     type: 3}
-  alarmAudioSource: {fileID: 4863688067905556179, guid: 8d61f56eb2c5c024094ed9a54b357448,
+  alarmAudioSource: {fileID: 8707038220535316363, guid: c0de2fd57fe9b0b4080ec91c7e52767f,
     type: 3}
   waypoints: []
   moveSpeed: 2

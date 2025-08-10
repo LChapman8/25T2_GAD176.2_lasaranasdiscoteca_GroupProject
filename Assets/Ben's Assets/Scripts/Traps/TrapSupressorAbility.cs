@@ -54,6 +54,7 @@ public class TrapSupressorAbility : MonoBehaviour
 
         // Suppress nearby traps
         var hits = Physics.OverlapSphere(transform.position, radius, trapMask);
+        Debug.Log($"TrapSuppressor: found {hits.Length} colliders in radius.");
         var processed = new HashSet<ITrap>();
         foreach (var h in hits)
         {

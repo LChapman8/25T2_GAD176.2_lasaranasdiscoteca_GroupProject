@@ -51,7 +51,7 @@ MonoBehaviour:
   fadeSpeed: 12
   occlusionMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 897
   occlusionRadius: 0.05
 --- !u!114 &1246550388705959392
 MonoBehaviour:
