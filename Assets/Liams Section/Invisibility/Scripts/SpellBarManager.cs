@@ -12,9 +12,14 @@ namespace PeekabooPro.UI
         public Sprite invisibilityIcon;
         public float invisibilityCooldown = 10f;
 
+        public Sprite disarmIcon;
+        public float disarmCooldown = 12f;
+
         void Start()
         {
             slotQ.SetSpell(invisibilityIcon, "Q", invisibilityCooldown);
+            slotE.SetSpell(disarmIcon, "E", disarmCooldown);
+
             // add in E and R spells respectively for your own abilities 
         }
 
