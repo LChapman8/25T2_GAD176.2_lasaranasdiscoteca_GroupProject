@@ -18355,6 +18355,12 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4278190080
       objectReference: {fileID: 0}
+    - target: {fileID: 5403667501001129641, guid: 702954c6e90cbac4e989e255360e7d4e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ef84082c70ac38848973f84fb60a60a1,
+        type: 3}
     - target: {fileID: 7569435905873646021, guid: 702954c6e90cbac4e989e255360e7d4e,
         type: 3}
       propertyPath: m_AnchorMax.y
