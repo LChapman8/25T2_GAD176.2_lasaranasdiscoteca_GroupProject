@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1664848980653474795}
   - component: {fileID: 6079320580552609040}
   - component: {fileID: -547702110835045070}
-  - component: {fileID: -1576243242487752183}
   - component: {fileID: -4840732653482186213}
   - component: {fileID: 4977053281383753409}
+  - component: {fileID: 516142476190730819}
   m_Layer: 0
   m_Name: ThrowingBottle
   m_TagString: Untagged
@@ -139,21 +139,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-1576243242487752183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8952757960126111777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd1620ecc4de5b843849b76fb7a31efd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 8952757960126111777}
-  throwPoint: {fileID: 0}
-  throwForce: 10
 --- !u!82 &-4840732653482186213
 AudioSource:
   m_ObjectHideFlags: 0
@@ -263,6 +248,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitSound: {fileID: -4840732653482186213}
+  footstepNoiseRadius: 2
+--- !u!114 &516142476190730819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8952757960126111777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd1620ecc4de5b843849b76fb7a31efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 8952757960126111777}
+  throwPoint: {fileID: 0}
+  throwForce: 10
+  throwRate: 0
 --- !u!1 &9011062462152959744
 GameObject:
   m_ObjectHideFlags: 0
