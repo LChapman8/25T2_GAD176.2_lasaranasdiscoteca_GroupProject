@@ -11648,8 +11648,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9112001013030334877, guid: bf421d117d633d648aa82b225132690b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1389884348}
   m_SourcePrefab: {fileID: 100100000, guid: bf421d117d633d648aa82b225132690b, type: 3}
+--- !u!1 &1389884347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9112001013030334877, guid: bf421d117d633d648aa82b225132690b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1389884346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1389884348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389884347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d80f2a72428b784ea6700d9602b5ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1398653998 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 3e3c8dd5f26019347bea55fa369bb227,
@@ -14297,7 +14319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 796fec1ad5782aa4f9d3d0b0133e7805, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef84082c70ac38848973f84fb60a60a1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Group Workspace.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/InvisibilityTutorial.unity
+    guid: 126af56c2f88c06488b3b34d843be3bf
+  - enabled: 1
+    path: Assets/Scenes/BarrierTrapTutorial.unity
+    guid: bf0889d2f02e9964bb142d40aeb0e7a7
+  - enabled: 1
+    path: Assets/Scenes/DistractionTutorial.unity
+    guid: a4feec24c8203fc47a8ad6cad282534c
+  - enabled: 1
+    path: Assets/Scenes/Sandbox.unity
+    guid: 6f8c14c82a703c841a7786a169ce0bd3
   m_configObjects: {}
