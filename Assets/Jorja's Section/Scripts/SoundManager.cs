@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
 
     public static void MakeNoise(Vector3 position, float radius)
     {
+        //Invokes the sound
         if (SoundEvent != null)
         {
             SoundEvent.Invoke(position, radius);

@@ -31,7 +31,7 @@ namespace Peekaboopro.Throw
 
         public void Throw()
         {
-
+            // The bottle throw functionality
             if (itemPrefab != null && throwPoint != null)
             {
                 GameObject thrownItem = Instantiate(itemPrefab, throwPoint.position, throwPoint.rotation);

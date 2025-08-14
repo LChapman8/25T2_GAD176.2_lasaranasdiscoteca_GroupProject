@@ -14,6 +14,7 @@ public class StationaryEnemyAI : BaseEnemyAI
 
     private void Update()
     {
+        //Rotates the enemy while its standing still
         Vector3 rotation = Vector3.zero;
         if (rotateX)
         {
@@ -29,6 +30,6 @@ public class StationaryEnemyAI : BaseEnemyAI
         }
 
         transform.Rotate(rotation * speed * Time.deltaTime);
-        }
     }
+}
 
