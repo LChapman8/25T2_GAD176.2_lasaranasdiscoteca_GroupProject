@@ -23,6 +23,35 @@ public class MovingEnemyAI : BaseEnemyAI
 
     private void Update()
     {
+        // Handle reacting to noise first
+        if (reactingToNoise)
+        {
+            // Look at the noise position
+            Vector3 lookDir = (noiseLookPosition - transform.position).normalized;
+            if (lookDir != Vector3.zero)
+            {
+                Quaternion lookRotation = Quaternion.LookRotation(lookDir);
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+            }
+
+            // Countdown timer
+            noiseReactTimer -= Time.deltaTime;
+            if (noiseReactTimer <= 0f)
+            {
+                reactingToNoise = false;
+                finishedReacting = true; // resume patrol
+                waiting = false;
+            }
+
+            return; // Skip patrol while reacting
+        }
+
+        // If just finished reacting, reset any states
+        if (finishedReacting)
+        {
+            finishedReacting = false;
+        }
+
         //Telling the enemy to 'patrol' to each point
         Patrol();
 
