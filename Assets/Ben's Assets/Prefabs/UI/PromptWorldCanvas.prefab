@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5458878324773652600}
   - component: {fileID: 4865138744424878593}
   - component: {fileID: 1246550388705959392}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: PromptWorldCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 6323225871351069642}
   - component: {fileID: 616174581486324727}
   - component: {fileID: 4210532830949511969}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 1368018837000413191}
   - component: {fileID: 8815573726966889348}
   - component: {fileID: 8412748017005080824}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 552332794672956861}
   - component: {fileID: 292942161048086744}
   - component: {fileID: 4377611536043882103}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

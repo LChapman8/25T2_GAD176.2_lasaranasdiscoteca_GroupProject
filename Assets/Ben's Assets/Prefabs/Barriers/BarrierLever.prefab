@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4376080052966374455}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: PromptAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -41,11 +41,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 960a2d5ece1941a4b8c3b5ae00701798, type: 3}
       propertyPath: m_Name
-      value: Statue11_c Variant
+      value: BarrierLever
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 960a2d5ece1941a4b8c3b5ae00701798, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 960a2d5ece1941a4b8c3b5ae00701798, type: 3}
       propertyPath: m_LocalPosition.x

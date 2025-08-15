@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5821655369163599022}
   - component: {fileID: 109510445410765531}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BridgeBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,6 +90,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 2128fcefcfbcccb48acf92f0cc472027, type: 3}
       propertyPath: m_Name
       value: Bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2128fcefcfbcccb48acf92f0cc472027, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2128fcefcfbcccb48acf92f0cc472027, type: 3}
       propertyPath: m_StaticEditorFlags

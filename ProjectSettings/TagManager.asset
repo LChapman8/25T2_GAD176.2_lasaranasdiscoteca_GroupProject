@@ -14,11 +14,11 @@ TagManager:
   - UI
   - Tree
   - Wall
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Observer
+  - Interactable
+  - Barrier
+  - Trap
+  - WorldUI
   - 
   - 
   - 
