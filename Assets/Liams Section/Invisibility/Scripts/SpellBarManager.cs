@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace PeekabooPro.UI
 {
+    /// <summary>
+    /// This script is responsible for managing the spellslots on UI spell bar.
+    /// </summary>
     // UI spell manager for stealth mechanics being added
     public class SpellBarManager : MonoBehaviour
     {

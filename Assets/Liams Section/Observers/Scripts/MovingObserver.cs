@@ -2,6 +2,11 @@ using PeekabooPro.Observers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// this script is responsible for managing the specific behaviour of the moving observer
+/// its a child of the base observer.
+/// </summary>
+
 public class MovingObserver : BaseObserver
 {
     // array for waypoints and variables for move speed and waitime 

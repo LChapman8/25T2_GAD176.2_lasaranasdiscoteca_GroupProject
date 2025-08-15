@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// this script is responsible for a UI pop up at the start of my tutorial to explain how it works.
+/// </summary>
+
 public class InvisInstructionsUI : MonoBehaviour
 {
     [Header("UI Panel for instructions")]

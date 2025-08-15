@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Peekaboopro.Invisibility
 {
+    /// <summary>
+    /// This script is responsible for managing the functions and variables related to casting the invisibility spell.
+    /// </summary>
     public class InvisibilitySpell : MonoBehaviour
     {
         // variables for turning invisible/cooldowns

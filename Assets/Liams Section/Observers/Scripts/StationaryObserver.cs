@@ -2,6 +2,11 @@ using PeekabooPro.Observers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This script is responsible for managing the specific behaviour of the stationary observer
+/// its a child of the base observer. 
+/// </summary>
+
 public class StationaryObserver : BaseObserver
 {
     // variables for rotation/scanning 

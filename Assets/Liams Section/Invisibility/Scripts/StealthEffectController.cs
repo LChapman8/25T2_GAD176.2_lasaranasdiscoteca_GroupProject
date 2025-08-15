@@ -1,6 +1,11 @@
 using UnityEngine;
 using Peekaboopro.Invisibility;
 
+/// <summary>
+/// this script is responsible for managing the effects associated with the invisibility spell, such as making 
+/// the players mesh render turn transparent etc. 
+/// </summary>
+
 public class StealthEffectController : MonoBehaviour
 {
     // vairables/reference to my VFX for the invisibilty spell 
