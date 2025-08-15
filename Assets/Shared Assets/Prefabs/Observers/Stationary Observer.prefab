@@ -356,8 +356,8 @@ MonoBehaviour:
   rotationSpeed: 70
   moveSpeed: 2
   alarmDelay: 1
-  acceleration: 100
-  maxChaseSpeed: 400
+  acceleration: 1
+  maxChaseSpeed: 10
 --- !u!114 &3309783799517195871
 MonoBehaviour:
   m_ObjectHideFlags: 0

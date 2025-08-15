@@ -11,13 +11,13 @@ public class StationaryObserver : BaseObserver
 
     // variables for movespead and alarm delay 
     [Header("chase settings")]
-    public float moveSpeed = 100f;
+    public float moveSpeed = 2f;
     public float alarmDelay = 2f;
 
     // chase acceleration settings
     [Header("chase acceleration")]
-    public float acceleration = 100f;         // units per second²
-    public float maxChaseSpeed = 400f;        // max chase speed
+    public float acceleration = 1f;         // units per second²
+    public float maxChaseSpeed = 10f;        // max chase speed
     private float currentSpeed;               // current chase speed
 
     // variable for chasing 

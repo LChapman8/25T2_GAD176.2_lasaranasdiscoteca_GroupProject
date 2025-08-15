@@ -7,13 +7,13 @@ public class MovingObserver : BaseObserver
     // array for waypoints and variables for move speed and waitime 
     [Header("movement settings")]
     public Transform[] waypoints;
-    public float moveSpeed = 100f;           // adjusted patrol speed to match StationaryObserver
+    public float moveSpeed = 2f;           // adjusted patrol speed to match StationaryObserver
     public float waitTimeAtWaypoint = 1f;
 
     // chase acceleration settings
     [Header("chase acceleration")]
-    public float acceleration = 100f;       // units per second²
-    public float maxChaseSpeed = 400f;      // max chase speed
+    public float acceleration = 1f;       // units per second²
+    public float maxChaseSpeed = 10f;      // max chase speed
     private float currentSpeed;             // current chase speed
 
     // variables for waiting/chasing as well as waypoint index

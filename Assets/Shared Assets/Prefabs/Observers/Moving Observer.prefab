@@ -361,8 +361,8 @@ MonoBehaviour:
   waypoints: []
   moveSpeed: 2
   waitTimeAtWaypoint: 1
-  acceleration: 100
-  maxChaseSpeed: 400
+  acceleration: 1
+  maxChaseSpeed: 10
 --- !u!114 &-2378461489939594923
 MonoBehaviour:
   m_ObjectHideFlags: 0
