@@ -12,22 +12,22 @@ public class MovingObserver : BaseObserver
     // array for waypoints and variables for move speed and waitime 
     [Header("movement settings")]
     public Transform[] waypoints;
-    public float moveSpeed = 2f;           // adjusted patrol speed to match StationaryObserver
+    public float moveSpeed = 2f;           
     public float waitTimeAtWaypoint = 1f;
 
     // chase acceleration settings
     [Header("chase acceleration")]
-    public float acceleration = 1f;       // units per second²
-    public float maxChaseSpeed = 10f;      // max chase speed
-    private float currentSpeed;             // current chase speed
+    public float acceleration = 1f;       
+    public float maxChaseSpeed = 10f;     
+    private float currentSpeed;           
 
     // variables for waiting/chasing as well as waypoint index
     private int currentWaypointIndex = 0;
     private float waitTimer = 0f;
     private bool waiting = false;
     private bool isChasing = false;
-
-    private Rigidbody rb;                     // reference to rigidbody
+    // reference to rigidbody
+    private Rigidbody rb;                    
 
     // subscribe to detection events
     protected override void Awake()
@@ -40,7 +40,7 @@ public class MovingObserver : BaseObserver
         if (rb == null)
             Debug.LogError($"{name}: No Rigidbody found! Please add one for physics movement.");
 
-        // Make sure Rigidbody is set up for physics-based movement
+        // make sure Rigidbody is set up for physics based movement
         if (rb != null)
         {
             rb.interpolation = RigidbodyInterpolation.Interpolate;
@@ -84,7 +84,7 @@ public class MovingObserver : BaseObserver
         Vector3 direction = (target.position - rb.position).normalized;
 
         // use Rigidbody movement for physics consistency
-        currentSpeed = moveSpeed; // patrol speed
+        currentSpeed = moveSpeed; 
         Vector3 targetPosition = rb.position + direction * currentSpeed * Time.deltaTime;
         rb.MovePosition(targetPosition);
 
@@ -124,7 +124,7 @@ public class MovingObserver : BaseObserver
             playerTransform = playerStealthState.transform;
 
         isChasing = true;
-        currentSpeed = moveSpeed; // start chase from patrol speed
+        currentSpeed = moveSpeed; 
         Debug.Log($"{name}: begin chase.");
     }
 
@@ -133,7 +133,7 @@ public class MovingObserver : BaseObserver
     {
         Debug.Log($"{name}: lost player. resume patrol.");
         isChasing = false;
-        currentSpeed = moveSpeed; // reset speed
+        currentSpeed = moveSpeed; 
     }
 
     // reload scene immediately on inner radius triggered

@@ -26,8 +26,6 @@ namespace PeekabooPro.UI
             slotQ.SetSpell(invisibilityIcon, "Q", invisibilityCooldown);
             slotE.SetSpell(disarmIcon, "E", disarmCooldown);
             slotR.SetSpell(throwItemIcon, "R", throwItemCooldown);
-
-            // add in E and R spells respectively for your own abilities 
         }
 
         // function for triggering the "Q" cooldown 
