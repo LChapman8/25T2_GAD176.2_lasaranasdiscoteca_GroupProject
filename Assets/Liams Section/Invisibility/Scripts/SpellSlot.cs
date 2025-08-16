@@ -3,6 +3,10 @@ using UnityEngine.UI;
 using TMPro;
 using PeekabooPro.UI;
 
+/// <summary>
+/// This script is responsible for managing the information inside the spell slots on the spellbar UI
+/// it takes an image, hotkey text, cooldownoverlay and a cooldown text for countdown to make a function spell bar.
+/// </summary>
 public class SpellSlot : MonoBehaviour
 {
     // vairables for images and texts of the spell 

@@ -2,6 +2,11 @@ using PeekabooPro.Observers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This script is responsible for managing the specific behaviour of the stationary observer
+/// its a child of the base observer. 
+/// </summary>
+
 public class StationaryObserver : BaseObserver
 {
     // variables for rotation/scanning 
@@ -16,14 +21,14 @@ public class StationaryObserver : BaseObserver
 
     // chase acceleration settings
     [Header("chase acceleration")]
-    public float acceleration = 1f;         // units per second²
-    public float maxChaseSpeed = 10f;        // max chase speed
-    private float currentSpeed;               // current chase speed
+    public float acceleration = 1f;         
+    public float maxChaseSpeed = 10f;        
+    private float currentSpeed;               
 
     // variable for chasing 
     private bool isChasing = false;
-
-    private Rigidbody rb;                     // reference to rigidbody
+    // reference to rigid body for accelration
+    private Rigidbody rb;                     
 
     // subscribe to events on awake
     protected override void Awake()
@@ -36,7 +41,7 @@ public class StationaryObserver : BaseObserver
         if (rb == null)
             Debug.LogError($"{name}: No Rigidbody found! Please add one for physics movement.");
 
-        // Make sure Rigidbody is set up for physics-based movement
+        // make sure Rigidbody is set up for physics based movement
         if (rb != null)
         {
             rb.interpolation = RigidbodyInterpolation.Interpolate;
@@ -65,16 +70,16 @@ public class StationaryObserver : BaseObserver
     // move towards player position smoothly with acceleration
     private void MoveTowardPlayer()
     {
-        // Increase current speed using acceleration each frame until reaching maxChaseSpeed
+        // increase current speed using acceleration each frame until reaching maxChaseSpeed
         currentSpeed += acceleration * Time.deltaTime;
         currentSpeed = Mathf.Clamp(currentSpeed, moveSpeed, maxChaseSpeed);
 
-        // Physics-based movement
+        // physics based movement
         Vector3 direction = (playerTransform.position - transform.position).normalized;
         Vector3 targetPosition = rb.position + direction * currentSpeed * Time.deltaTime;
         rb.MovePosition(targetPosition);
 
-        // Smoothly rotate towards player
+        // smoothly rotate towards player
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         rb.MoveRotation(Quaternion.Slerp(rb.rotation, lookRotation, Time.deltaTime * 5f));
     }

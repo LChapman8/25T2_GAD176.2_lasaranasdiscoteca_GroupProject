@@ -2,6 +2,10 @@ using System;
 using UnityEngine;
 using Peekaboopro.Invisibility;
 
+/// <summary>
+/// this script is responsible for managing the functions and variables around the player
+/// being stealthed and feeding that information to the other scripts that use stealth.
+/// </summary>
 public class PlayerStealthState : MonoBehaviour
 {
     // variables for invisibility
