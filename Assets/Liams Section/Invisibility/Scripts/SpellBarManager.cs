@@ -5,7 +5,7 @@ namespace PeekabooPro.UI
     /// <summary>
     /// This script is responsible for managing the spellslots on UI spell bar.
     /// </summary>
-    // UI spell manager for stealth mechanics being added
+    
     public class SpellBarManager : MonoBehaviour
     {
         public SpellSlot slotQ;
@@ -21,6 +21,7 @@ namespace PeekabooPro.UI
         public Sprite throwItemIcon;
         public float throwItemCooldown = 5f;
 
+        // on start, set all spell slots
         void Start()
         {
             slotQ.SetSpell(invisibilityIcon, "Q", invisibilityCooldown);
@@ -28,7 +29,7 @@ namespace PeekabooPro.UI
             slotR.SetSpell(throwItemIcon, "R", throwItemCooldown);
         }
 
-        // function for triggering the "Q" cooldown 
+        // function for triggering the "Q, and R" cooldowns
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Q))

@@ -14,6 +14,7 @@ public class SpellSlot : MonoBehaviour
     public TextMeshProUGUI hotkeyText;
     public Image cooldownOverlay;
     public TextMeshProUGUI cooldownText;
+
     // variables to manage cooldowns 
     private float cooldownTime;
     private float cooldownTimer;
